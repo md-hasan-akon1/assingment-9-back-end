@@ -5,4 +5,4 @@ import auth from "../../../middleWare/auth";
 export const userProfileRouter = express.Router();
 
 userProfileRouter.get("/my-profile",auth(),userProfileController.getMyProfile)
-userProfileRouter.put("/my-profile",auth(),userProfileController.updateMyProfile)
+userProfileRouter.put("/update-profile",auth(),userProfileController.updateMyProfile)
