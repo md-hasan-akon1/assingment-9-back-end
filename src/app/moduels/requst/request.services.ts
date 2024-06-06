@@ -32,23 +32,34 @@ const donarRequest = async (payload: TDonarRequest, user: TVerifyUSer) => {
   return createRequest;
 };
 
-const getRequests = async (user: TVerifyUSer) => {
+const getMyRequests = async (user: TVerifyUSer) => {
   const result = await prisma.request.findMany({
     where: {
-      donorId: user?.id,
+      requesterId: user?.id,
     },
     include: {
-      requester: {
-        select: {
+      // requester: {
+      //   select: {
+      //     id: true,
+      //     name: true,
+      //     email: true,
+      //     bloodType: true,
+      //     location: true,
+      //     availability: true,
+      //   },
+      // },
+      donor:{
+        select:{
           id: true,
           name: true,
           email: true,
           bloodType: true,
           location: true,
           availability: true,
-        },
-      },
+        }
+      }
     },
+    
   });
 
   return result;
@@ -67,6 +78,6 @@ const updateRequest = async (id: string,payload:any) => {
 };
 export const requestServices = {
   donarRequest,
-  getRequests,
+  getMyRequests,
   updateRequest,
 };

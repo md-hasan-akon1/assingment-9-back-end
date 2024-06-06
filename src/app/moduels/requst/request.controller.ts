@@ -16,9 +16,9 @@ const donarRequest = catchAsync(async (req: Request & { user?: any }, res) => {
     data: result,
   });
 });
-const getRequests = catchAsync(async (req: Request & { user?: any }, res) => {
+const getMyRequests = catchAsync(async (req: Request & { user?: any }, res) => {
   const user = req.user;
-  const result = await requestServices.getRequests(user);
+  const result = await requestServices.getMyRequests(user);
   sendResponse(res, {
     statusCode: 200,
     success: true,
@@ -42,6 +42,6 @@ const updateRequest = catchAsync(async (req, res) => {
       });
 export const requestController = {
   donarRequest,
-  getRequests,
+  getMyRequests,
   updateRequest,
 };
