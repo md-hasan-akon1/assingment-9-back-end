@@ -43,6 +43,7 @@ if(userProfile){
 const result= await prisma.user.findUniqueOrThrow({
   where: { id: user?.id },
   select:{
+    id:true,
     name:true,
     email:true,
     phoneNumber:true,

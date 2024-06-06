@@ -22,7 +22,7 @@ model User {
   bloodType    String
   location     String
   phoneNumber String @default("017202606")
-  availability Boolean      @default(false)
+  availability String      @default("false")
   createdAt    DateTime     @default(now())
   updatedAt    DateTime     @updatedAt
   donor        Request[]    @relation("donor")

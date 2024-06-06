@@ -62,7 +62,7 @@ const getUserFromDB = async (req: any) => {
   }
   if (availability) {
     filterData.availability =
-      (req.query.availability as string) === "true" ? true : false;
+      (req.query.availability as string) == "true" ? "true" : "false";
   }
 
   if (searchTerm) {
@@ -80,11 +80,11 @@ const getUserFromDB = async (req: any) => {
       AND: Object.keys(filterData).map((key) => ({
         [key]: {
           equals:
-            typeof (filterData as any)[key] === "string"
+            typeof (filterData as any)[key] == "string"
               ? (filterData as any)[key]
               : (filterData as any)[key],
           mode:
-            typeof (filterData as any)[key] === "string"
+            typeof (filterData as any)[key] == "string"
               ? Prisma.QueryMode.insensitive
               : undefined,
         },
