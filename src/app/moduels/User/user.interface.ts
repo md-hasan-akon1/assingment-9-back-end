@@ -3,6 +3,7 @@ import { z } from "zod"
 export type TDonarRequest ={
         donorId: string
         phoneNumber: string
+        bloodType:string
         dateOfDonation: string
         hospitalName: string
         hospitalAddress: string

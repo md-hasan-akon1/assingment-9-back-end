@@ -5,6 +5,7 @@ const donarRequest = async (payload: TDonarRequest, user: TVerifyUSer) => {
   const requestData = {
     donorId: payload.donorId,
     requesterId: user.id,
+    bloodType:payload.bloodType,
     phoneNumber: payload.phoneNumber,
     dateOfDonation: payload.dateOfDonation,
     hospitalName: payload.hospitalName,
@@ -19,6 +20,7 @@ const donarRequest = async (payload: TDonarRequest, user: TVerifyUSer) => {
           id: true,
           name: true,
           email: true,
+          phoneNumber:true,
           bloodType: true,
           location: true,
           availability: true,
@@ -53,6 +55,7 @@ const getMyRequests = async (user: TVerifyUSer) => {
           id: true,
           name: true,
           email: true,
+          phoneNumber:true,
           bloodType: true,
           location: true,
           availability: true,
